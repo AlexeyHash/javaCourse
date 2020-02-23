@@ -1,8 +1,12 @@
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 public class Main
 {
@@ -17,13 +21,18 @@ public class Main
 //        Collections.sort(staff, Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));
 //        staff.forEach(System.out::println);
 
-
         staff.stream()
-                .filter(employee -> employee.getWorkStart()
-                .getYear() == 117)
+                .filter(employee -> convertToLocalDate(employee.getWorkStart())
+                .getYear() == 2017)
                 .max(Comparator.comparing(Employee::getSalary))
                 .ifPresent(System.out::println);
 
+    }
+
+    private static LocalDate convertToLocalDate(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
     }
 
     private static ArrayList<Employee> loadStaffFromFile()
