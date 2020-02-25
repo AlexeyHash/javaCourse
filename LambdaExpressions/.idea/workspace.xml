@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baabd658-2e59-4748-887f-1bdd396c992b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Airoport/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/ConsoleCustomerList.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/CustomerStorage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/CustomerStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Airoport/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Airoport/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/IllegalAddCommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/CustomerStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/CustomerStorage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/out/production/ConsoleCustomerList/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/src/CustomerStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/CustomerStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleCustomerList/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleCustomerList/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />

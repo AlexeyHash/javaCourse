@@ -20,7 +20,12 @@ public class Main
             String command = scanner.nextLine();
             String[] tokens = command.split("\\s+", 2);
             if(tokens[0].equals("add")) {
-                executor.addCustomer(tokens[1]);
+                try {
+                    executor.addCustomer(tokens[1]);
+                }
+                catch (IllegalAddCommandException ex){
+                    ex.printStackTrace();
+                }
             }
             else if(tokens[0].equals("list")) {
                 executor.listCustomers();
