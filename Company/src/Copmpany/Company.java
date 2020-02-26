@@ -47,24 +47,22 @@ public class Company {
     }
 
     public List<Employee> getTopMonthSalary(int count) {
-        Collections.sort(employees, new EmployeeComparator());
-        List<Employee> topSalary = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            topSalary.add(employees.get(i));
-        }
-        return topSalary;
+
+        return getSortedList(new EmployeeComparator(),count);
     }
 
     public List<Employee> getLowestMonthSalary(int count) {
 
-        Collections.sort(employees, new EmployeeComparator());
-        List<Employee> lowSalary = new ArrayList<>();
-        Collections.reverse(employees);
-        for (int i = 0; i < count; i++) {
-            lowSalary.add(employees.get(i));
-        }
+        return getSortedList(new EmployeeComparator().reversed(),count);
+    }
 
-        return lowSalary;
+    private List<Employee> getSortedList (Comparator<Employee>comparator, int count){
+        Collections.sort(employees, comparator);
+        List<Employee> list = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            list.add(employees.get(i));
+        }
+        return list;
     }
 
 }
