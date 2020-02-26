@@ -23,8 +23,11 @@ public class Main
                 try {
                     executor.addCustomer(tokens[1]);
                 }
+                catch (IndexOutOfBoundsException ex){
+                    System.out.println(ex.getMessage());
+                }
                 catch (IllegalAddCommandException ex){
-                    ex.printStackTrace();
+                    System.out.println(ex.getMessage());
                 }
             }
             else if(tokens[0].equals("list")) {
