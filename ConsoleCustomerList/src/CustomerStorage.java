@@ -1,3 +1,7 @@
+import NotValidException.NotValidCommandException;
+import NotValidException.NotValidEmailException;
+import NotValidException.NotValidPhoneNumberException;
+
 import java.util.HashMap;
 
 public class CustomerStorage
@@ -25,7 +29,7 @@ public class CustomerStorage
         storage = new HashMap<>();
     }
 
-    public void addCustomer(String data) throws IndexOutOfBoundsException,IllegalAddCommandException
+    public void addCustomer(String data) throws IndexOutOfBoundsException, NotValidCommandException
     {
         String[] components = data.split("\\s+");
         if (components.length != 4){
@@ -35,14 +39,14 @@ public class CustomerStorage
         if (!components[2].contains(EXAMPLE_EMAIL_1)){
             if (!components[2].contains(EXAMPLE_EMAIL_2)){
                 if (!components[2].contains(EXAMPLE_EMAIL_3)){
-                    throw new IllegalAddCommandException(EMAIL_EXCEPTION);
+                    throw new NotValidEmailException(EMAIL_EXCEPTION);
                 }
             }
         }
         String number = components[3].substring(0,3);
         if (!number.contains(EXAMPLE_PHONE_1)){
             if (!number.contains(EXAMPLE_PHONE_2)){
-                throw new IllegalAddCommandException(PHONE_NUMBER_EXCEPTION);
+                throw new NotValidPhoneNumberException(PHONE_NUMBER_EXCEPTION);
             }
         }
 

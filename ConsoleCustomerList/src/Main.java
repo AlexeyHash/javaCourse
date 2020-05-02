@@ -1,3 +1,5 @@
+import NotValidException.NotValidCommandException;
+
 import java.util.Scanner;
 
 public class Main
@@ -8,6 +10,8 @@ public class Main
             "\tlist\n\tcount\n\tremove Василий Петров";
     private static String commandError = "Wrong command! Available command examples: \n" +
             commandExamples;
+    private static String commandRemoveError = "Wrong remove command! Available command example: \n" +
+            "remove Василий Петров";
     private static String helpText = "Command examples:\n" + commandExamples;
 
     public static void main(String[] args)
@@ -26,7 +30,7 @@ public class Main
                 catch (IndexOutOfBoundsException ex){
                     System.out.println(ex.getMessage());
                 }
-                catch (IllegalAddCommandException ex){
+                catch (NotValidCommandException ex){
                     System.out.println(ex.getMessage());
                 }
             }
@@ -35,7 +39,11 @@ public class Main
             }
             else if(tokens[0].equals("remove"))
             {
-                executor.removeCustomer(tokens[1]);
+                try {
+                    executor.removeCustomer(tokens[1]);
+                }catch (ArrayIndexOutOfBoundsException a){
+                    System.out.println(commandRemoveError);
+                }
             }
             else if(tokens[0].equals("count")) {
                 System.out.println("There are " + executor.getCount() + " customers");
