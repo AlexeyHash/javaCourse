@@ -6,23 +6,23 @@ import java.util.List;
 
 public class RouteCalculatorTest extends TestCase
 {
-    List<Station> route;
-    StationIndex stationIndex;
-    List<Station> connections;
-    List<Station> connections2;
-    RouteCalculator calculator;
-    Line line1;
-    Line line2;
-    Line line3;
-    Station station1line1;
-    Station station2line1;
-    Station station3line1;
-    Station station1line2;
-    Station station2line2;
-    Station station3line2;
-    Station station1line3;
-    Station station2line3;
-    Station station3line3;
+    private List<Station> route;
+    private StationIndex stationIndex;
+    private List<Station> connections;
+    private List<Station> connections2;
+    private RouteCalculator calculator;
+    private Line line1;
+    private Line line2;
+    private Line line3;
+    private Station station1line1;
+    private Station station2line1;
+    private Station station3line1;
+    private Station station1line2;
+    private Station station2line2;
+    private Station station3line2;
+    private Station station1line3;
+    private Station station2line3;
+    private Station station3line3;
     /**
      * A - line_1
      * B - line_2
@@ -112,10 +112,47 @@ public class RouteCalculatorTest extends TestCase
 
     }
 
-    public void testCalculateDuration()
+    public void test_time_to_same_station_shouldBeZero()
     {
-        double actual = RouteCalculator.calculateDuration(route);
-        double expected = 22;
+        List<Station> testRoute = new ArrayList<>();
+        testRoute.add(station1line1);
+        double actual = RouteCalculator.calculateDuration(testRoute);
+        double expected = 0;
+        assertEquals(expected,actual);
+    }
+
+    public void test_time_on_same_line()
+    {
+        List<Station> testRoute = new ArrayList<>();
+        testRoute.add(station1line1);
+        testRoute.add(station2line1);
+        testRoute.add(station3line1);
+        double actual = RouteCalculator.calculateDuration(testRoute);
+        double expected = 5;
+        assertEquals(expected,actual);
+    }
+    public void test_time_with_one_connections()
+    {
+        List<Station> testRoute = new ArrayList<>();
+        testRoute.add(station1line1);
+        testRoute.add(station2line1);
+        testRoute.add(station2line2);
+        testRoute.add(station1line2);
+        double actual = RouteCalculator.calculateDuration(testRoute);
+        double expected = 8.5;
+        assertEquals(expected,actual);
+    }
+    public void test_time_with_two_connections()
+    {
+        List<Station> testRoute = new ArrayList<>();
+        testRoute.add(station1line2);
+        testRoute.add(station2line2);
+        testRoute.add(station2line1);
+        testRoute.add(station3line1);
+        testRoute.add(station2line3);
+        testRoute.add(station3line3);
+        double actual = RouteCalculator.calculateDuration(testRoute);
+        double expected = 14.5;
         assertEquals(expected,actual);
     }
 
