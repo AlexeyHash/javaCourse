@@ -8,13 +8,13 @@
         <File name="MyFile_1" fileName="logs/search.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
             <Filters>
-                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+                <MarkerFilter marker="INPUT_HISTORY"/>
             </Filters>
         </File>
         <File name="MyFile_2" fileName="logs/input_error.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
             <Filters>
-                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
+                <MarkerFilter marker="INVALID_STATION"/>
             </Filters>
         </File>
         <File name="MyFile_3" fileName="logs/exception.log">
@@ -24,8 +24,8 @@
 
     <loggers>
         <root level="debug">
-            <appender-ref ref="MyFile_1" level="info"/>
-            <appender-ref ref="MyFile_2" level="warn"/>
+            <appender-ref ref="MyFile_1"/>
+            <appender-ref ref="MyFile_2"/>
             <appender-ref ref="MyFile_3" level="error"/>
         </root>
     </loggers>

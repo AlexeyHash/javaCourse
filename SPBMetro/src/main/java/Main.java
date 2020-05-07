@@ -2,6 +2,8 @@ import core.Line;
 import core.Station;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,7 +16,10 @@ import java.util.Scanner;
 
 public class Main
 {
-    private static Logger logger;
+    private static Logger logger = LogManager.getLogger(Main.class);
+
+    private static final Marker INPUT_HISTORY_MARKER = MarkerManager.getMarker("INPUT_HISTORY");
+    private static final Marker INVALID_STATIONS_MARKER = MarkerManager.getMarker("INVALID_STATION");
 
     private static String dataFile = "src/main/resources/map.json";
     private static Scanner scanner;
@@ -24,7 +29,6 @@ public class Main
     public static void main(String[] args)
     {
         RouteCalculator calculator = getRouteCalculator();
-        logger = LogManager.getRootLogger();
 
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
@@ -81,10 +85,10 @@ public class Main
             String line = scanner.nextLine().trim();
             Station station = stationIndex.getStation(line);
             if(station != null) {
-                logger.info("Станция найдена: " + line);
+                logger.info(INPUT_HISTORY_MARKER, "Найденная станция: {}", line);
                 return station;
             }
-            logger.warn("Станция не найдена: " + line);
+            logger.info(INVALID_STATIONS_MARKER, "Станция не найдена: {}", line);
             System.out.println("Станция не найдена :(");
             throw new Exception("Пользователь что-то намудрил...");
         }
