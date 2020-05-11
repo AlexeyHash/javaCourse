@@ -5,7 +5,20 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <File name="MyFile" fileName="logs/result.log">
+        <File name="MyFile_1" fileName="logs/less 100Mb files.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+            </Filters>
+        </File>
+
+        <File name="MyFile_2" fileName="logs/less 1Gb files.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
+            </Filters>
+        </File>
+        <File name="MyFile_3" fileName="logs/more 1Gb files.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
         </File>
 
@@ -13,7 +26,9 @@
 
     <loggers>
         <root level="debug">
-            <appender-ref ref="MyFile"/>
+            <appender-ref ref="MyFile_1" level = "info"/>
+            <appender-ref ref="MyFile_2" level = "warn"/>
+            <appender-ref ref="MyFile_3" level = "error"/>
 
         </root>
     </loggers>

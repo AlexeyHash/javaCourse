@@ -16,7 +16,6 @@ public class Main
             long folderSize = listFilesForFolder(folder);
             System.out.println("\nОбщий размер папки " + folder.getName() + ": "
                     + calculateFileSize(folderSize));
-            logger.info(calculateFileSize(folderSize));
         }
         catch (NullPointerException ex){
             ex.printStackTrace();
@@ -30,7 +29,15 @@ public class Main
                 listFilesForFolder(file);
             }
             else {
-                logger.info(file.getName() + " - " + calculateFileSize(file.length()));
+                if (file.length() < Math.pow(2.0, 20.0) * 100){
+                    logger.info(file.getName() + " - " + calculateFileSize(file.length()));
+                }
+                if (file.length() > (Math.pow(2.0, 20.0) * 100) && file.length() < Math.pow(2.0, 30.0)){
+                    logger.warn(file.getName() + " - " + calculateFileSize(file.length()));
+                }
+                if (file.length() > Math.pow(2.0, 30.0)){
+                    logger.error(file.getName() + " - " + calculateFileSize(file.length()));
+                }
                 System.out.println(file.getName() + " - " + calculateFileSize(file.length()));
             }
             size = size + file.length();
