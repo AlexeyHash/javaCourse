@@ -17,16 +17,19 @@ public class Main
         }
     }
 
-    private static void copyDir(String sourceDir, String DestDir) throws IOException {
+    private static void copyDir(String sourceFolder, String destFolder) throws IOException {
 
-        File folder = new File(sourceDir);
+        File folder = new File(sourceFolder);
         File[] listOfFiles = folder.listFiles();
-        Path destDir = Paths.get(DestDir);
+        Path destDir = Paths.get(destFolder);
 
             for (File file : listOfFiles) {
                 if (file.isDirectory()) {
                     Files.copy(file.toPath(), destDir.resolve(file.getName()), StandardCopyOption.REPLACE_EXISTING);
-                    copyDir(file.getAbsolutePath(), DestDir);
+                    copyDir(file.getAbsolutePath(), destDir.resolve(file.getName()).toString());
+                }
+                if (file.exists() && file.isDirectory()) {
+                    continue;
                 }
                 Files.copy(file.toPath(), destDir.resolve(file.getName()), StandardCopyOption.REPLACE_EXISTING);
             }
